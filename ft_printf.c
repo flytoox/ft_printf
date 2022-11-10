@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:48:02 by obelaizi          #+#    #+#             */
-/*   Updated: 2022/11/08 23:37:26 by obelaizi         ###   ########.fr       */
+/*   Updated: 2022/11/10 01:43:42 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	check(int *count, char c, va_list p)
 	else if (c == 'X')
 		ft_put_exadicimal(va_arg(p, int), count, 1);
 	else if (c == '%')
-		(*count) += write(1, "%", 1);
+		*count += write(1, "%", 1);
 }
 
 int	ft_printf(const char *s, ...)
@@ -65,5 +65,7 @@ int	ft_printf(const char *s, ...)
 			ft_putchar(*(s), &count);
 		s++;
 	}
+	if (count < 0)
+		return (-1);
 	return (va_end(p), count);
 }

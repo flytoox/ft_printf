@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:36:23 by obelaizi          #+#    #+#             */
-/*   Updated: 2022/11/07 18:10:21 by obelaizi         ###   ########.fr       */
+/*   Updated: 2022/11/10 01:39:52 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	ft_putnbr_unsigned(unsigned int nb, int *count)
 	if (nb >= 0 && nb <= 9)
 	{
 		c = nb + 48;
-		write(1, &c, 1);
-		*count += 1;
+		*count += write(1, &c, 1);
 	}
 	else
 	{

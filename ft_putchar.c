@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 01:07:19 by obelaizi          #+#    #+#             */
-/*   Updated: 2022/11/08 15:34:21 by obelaizi         ###   ########.fr       */
+/*   Updated: 2022/11/10 01:36:22 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_putchar(char c, int *count)
 {
-	write (1, &c, 1);
-	(*count) += 1;
+	*count += write (1, &c, 1);
 }
