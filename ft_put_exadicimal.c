@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:29:40 by obelaizi          #+#    #+#             */
-/*   Updated: 2022/11/10 01:38:51 by obelaizi         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:50:16 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,12 @@ static void	helper(unsigned int nbr, char *base, int *count)
 
 void	ft_put_exadicimal(unsigned int nbr, int *count, int check)
 {
-	unsigned int	n;
 	char			*base;
 
-	n = nbr;
 	if (check)
 		base = ft_strdup("0123456789ABCDEF");
 	else
 		base = ft_strdup("0123456789abcdef");
-	if (nbr < 0)
-	{
-		(*count) += write(1, "-", 1);
-		n = -nbr;
-	}
-	else
-		n = nbr;
-	helper(n, base, count);
+	helper(nbr, base, count);
 	free(base);
 }

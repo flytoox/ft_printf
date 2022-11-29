@@ -6,7 +6,7 @@
 /*   By: obelaizi <obelaizi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:48:02 by obelaizi          #+#    #+#             */
-/*   Updated: 2022/11/10 01:43:42 by obelaizi         ###   ########.fr       */
+/*   Updated: 2022/11/29 16:00:19 by obelaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	check(int *count, char c, va_list p)
 	else if (c == 's')
 		ft_putstr(va_arg(p, char *), count);
 	else if (c == 'p')
-		ft_put_pointer(va_arg(p, char *), count);
+		ft_put_pointer(va_arg(p, void *), count);
 	else if ((c == 'i' || c == 'd'))
 		ft_putnbr_int(va_arg(p, int), count);
 	else if (c == 'u')
@@ -49,6 +49,8 @@ int	ft_printf(const char *s, ...)
 	int		count;
 
 	count = 0;
+	if (write(1, "", 0) < 0)
+		return (-1);
 	va_start(p, s);
 	while (*s)
 	{
@@ -65,7 +67,5 @@ int	ft_printf(const char *s, ...)
 			ft_putchar(*(s), &count);
 		s++;
 	}
-	if (count < 0)
-		return (-1);
 	return (va_end(p), count);
 }
